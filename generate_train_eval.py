@@ -7,27 +7,26 @@ if __name__ == "__main__":
    parser = argparse.ArgumentParser(
        description='Separates a CSV file into training and validation sets',
        formatter_class=argparse.RawDescriptionHelpFormatter)
-   parser.add_argument('input_csv',
+       
+   parser.add_argument('--input_csv',
                        metavar='input_csv',
                        type=str,
                        help='Path to the input CSV file')
-   parser.add_argument(
-       '-f',
-       metavar='train_frac',
-       type=float,
-       default=.75,
-       help='fraction of the dataset that will be separated for training (default .75)')
-   parser.add_argument('-s',
+   parser.add_argument('--train_frac',
+                       metavar='train_frac',
+                       type=float,
+                       default=.75,
+                       help='fraction of the dataset that will be separated for training (default .75)')
+   parser.add_argument('--stratify',
                        metavar='stratify',
                        type=bool,
                        default=True,
                        help='Stratify by class instead of whole dataset (default True)')
-   parser.add_argument(
-       '-o',
-       metavar='output_dir',
-       type=str,
-       default=None,
-       help='Directory to output train and evaluation datasets (default input_csv directory)')
+   parser.add_argument('-output_dir',
+                       metavar='output_dir',
+                       type=str,
+                       default=None,
+                       help='Directory to output train and evaluation datasets (default input_csv directory)')
 
    args = parser.parse_args()
 

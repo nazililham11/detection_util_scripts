@@ -110,16 +110,16 @@ if __name__ == '__main__':
    parser = argparse.ArgumentParser(
        description='Create a TFRecord file for use with the TensorFlow Object Detection API.',
        formatter_class=argparse.RawDescriptionHelpFormatter)
-   parser.add_argument('csv_input', metavar='csv_input', type=str, help='Path to the CSV input')
-   parser.add_argument('pbtxt_input',
+   parser.add_argument('--csv_input', metavar='csv_input', type=str, help='Path to the CSV input')
+   parser.add_argument('--pbtxt_input',
                        metavar='pbtxt_input',
                        type=str,
                        help='Path to a pbtxt file containing class ids and display names')
-   parser.add_argument('image_dir',
+   parser.add_argument('--image_dir',
                        metavar='image_dir',
                        type=str,
                        help='Path to the directory containing all images')
-   parser.add_argument('output_path',
+   parser.add_argument('--output_path',
                        metavar='output_path',
                        type=str,
                        help='Path to output TFRecord')
