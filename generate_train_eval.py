@@ -30,21 +30,21 @@ if __name__ == "__main__":
 
    args = parser.parse_args()
 
-   if args.f < 0 or args.f > 1:
+   if args.train_frac < 0 or args.train_frac > 1:
       raise ValueError('train_frac must be between 0 and 1')
 
    # output_dir = input_csv directory is None
-   if args.o is None:
+   if args.output_dir is None:
       output_dir, _ = os.path.split(args.input_csv)
    else:
-      output_dir = args.o
+      output_dir = args.output_dir
 
    df = pd.read_csv(args.input_csv)
 
    # get 'class' column for stratification
-   strat = df['class'] if args.s else None
+   strat = df['class'] if args.stratify else None
 
-   train_df, validation_df = train_test_split(df, test_size=None, train_size=args.f, stratify=strat)
+   train_df, validation_df = train_test_split(df, test_size=None, train_size=args.train_frac, stratify=strat)
 
    # output files have the same name of the input file, with some extra stuff appended
    new_csv_name = os.path.splitext(args.input_csv)[0]

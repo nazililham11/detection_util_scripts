@@ -16,9 +16,8 @@ python generate_csv.py \
 * **generate_train_eval.py**
 ``` 
 python generate_train_eval.py \
-	--type xml \
-	--input object-detection/train \
-	--output_csv train.csv \
+	--input_csv label.csv \
+	--train_frac .8 \
 ```
 
 
